@@ -1,0 +1,8 @@
+
+# Nombre de la aplicaci�n. Ser� su identificador en Eureka.
+spring:
+  application:
+    name: msvc-student
+  config:
+    import: optional:configserver:http://localhost:8888
+

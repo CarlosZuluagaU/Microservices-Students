@@ -1,0 +1,28 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+
+  profiles:
+    # 'native' le dice al Config Server que lea los archivos de configuraci�n
+    # desde el sistema de archivos local en lugar de un repositorio Git.
+    active: native
+
+  cloud:
+    config:
+      server:
+        native:
+
+          search-locations: classpath:/configurations
+
+# --- Configuraci�n Opcional del Cliente Eureka ---
+# Descomenta esta secci�n si quieres que tu Config Server se registre en Eureka.
+# Esto permite que otros servicios lo encuentren din�micamente.
+# eureka:
+#   instance:
+#     hostname: localhost
+#   client:
+#     service-url:
+#       defaultZone: http://localhost:8761/eureka/

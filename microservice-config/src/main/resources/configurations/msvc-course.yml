@@ -1,0 +1,36 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: msvc-course
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/courses_db
+    username: postgres
+    password: root12345
+
+  # --- Configuraci�n de JPA y Hibernate ---
+  jpa:
+    # 'create': Crea el esquema al iniciar. Borra los datos anteriores.
+    hibernate:
+      ddl-auto: create
+
+    # Muestra en la consola las sentencias SQL que Hibernate ejecuta.
+    show-sql: true
+    database: postgresql
+
+    # Dialecto de SQL para MySQL 8 y superior.
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+# --- Configuraci�n del Cliente Eureka ---
+eureka:
+  instance:
+    # El nombre del host que este microservicio usar� para registrarse en Eureka.
+    hostname: localhost
+  client:
+    # La URL del servidor Eureka donde este microservicio se registrar�.
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
